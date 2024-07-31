@@ -1,12 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
+import { store } from './src/state-mang/store';
+import MovieList from './src/screens/MovieList';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import MovieDetail from './src/screens/MovieDetail';
+import { RootStackParamList } from './src/model';
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="MovieList">
+          <Stack.Screen name="MovieList" component={MovieList} options={{ title: 'Movies' }} />
+          <Stack.Screen name="MovieDetail" component={MovieDetail} options={{ title: 'Movie Detail' }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
