@@ -2,7 +2,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 
 export type RootStackParamList = {
   MovieList: undefined;
-  MovieDetail: { movie: Movie }; // Adjust the Movie type as needed
+  MovieDetail: { movie: Movie }; 
 };
 
 export type MovieDetailScreenNavigationProp = StackNavigationProp<RootStackParamList, 'MovieDetail'>;

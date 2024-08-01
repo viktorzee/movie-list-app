@@ -14,9 +14,8 @@ interface MovieDetailProps {
 const imageUri = process.env.EXPO_PUBLIC_POSTER_URI;
 
 const MovieDetail: React.FC<MovieDetailProps> = ({ route }) => {
- 
   const { movie } = route.params;
-  
+
   const movieDetail = movie as unknown as Movie;
 
   return (
@@ -29,7 +28,8 @@ const MovieDetail: React.FC<MovieDetailProps> = ({ route }) => {
       <Text style={styles.releaseDate}>{movieDetail.release_date}</Text>
       <Text style={styles.overview}>{movieDetail.overview}</Text>
     </ScrollView>
-  );};
+  )
+};
 
 const styles = StyleSheet.create({
   container: {
